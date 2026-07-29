@@ -1,16 +1,14 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local Packages = ReplicatedStorage:WaitForChild("Packages")
-
-local Signal = require(ReplicatedStorage.Packages.ReplicaShared.Signal)
-local ReplicaClient = require(Packages:WaitForChild("ReplicaClient"))
+local ReplicaClient = require(ReplicatedStorage.Packages.ReplicaClient)
+local Signal = require(ReplicatedStorage.Packages.Signal)
 
 local ReplicaDataService = {}
 
 function ReplicaDataService:init()
-	self.replicaLoaded = Signal.New()
+	self.replicaLoaded = Signal.new()
 	self.callbacks = {}
 
-	ReplicaClient.OnNew("PlayerData", function(replica: ReplicaClient.Replica)
+	ReplicaClient.OnNew("PlayerData", function(replica)
 		self.replicaData = replica.Data
 		self.replicaLoaded:Fire()
 

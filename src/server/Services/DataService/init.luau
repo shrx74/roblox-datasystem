@@ -7,8 +7,8 @@ local ServerScriptService = game:GetService("ServerScriptService")
 --//Modules
 local Signal = require(ReplicatedStorage.Packages.Signal)
 local ProfileStore = require(ServerScriptService.ServerPackages.ProfileStore)
-local DataTemplate = require(script:WaitForChild("DataTemplate"))
 local ReplicaServer = require(ServerScriptService.ServerPackages.ReplicaServer)
+local DataTemplate = require(script:WaitForChild("DataTemplate"))
 
 --//Setup
 local PlayerToken = ReplicaServer.Token("PlayerData")
