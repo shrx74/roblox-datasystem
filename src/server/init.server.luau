@@ -1,8 +1,9 @@
-local Players = game:GetService("Players")
+--!strict
 local DataService = require(script.Services.DataService)
+local AdminCommands = require(script.AdminCommands)
 
 DataService:init(false)
+AdminCommands:init()
 
-Players.PlayerAdded:Connect(function(player: Player)
-	DataService:WaitForData(player) --yield for player data load
-end)
+-- Other server systems: call DataService:WaitForData(player) before reading data;
+-- it returns nil if the player left or their data failed to load.
